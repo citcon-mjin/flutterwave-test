@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <style>
+            form input{
+                font-size: large;
+                margin: 10px;
+            }
+        </style>
+        <script>
+            window.onload = function() {
+                const queryString = location.search;
+                const params = new URLSearchParams(queryString);
+                const mode = params.get('mode');
+                const fields = params.get('fields').split(',');
+
+                let html = '';
+                for(var index in fields) {
+                    html += '<input type="text" name="' + fields[index] + '" placeholder="' + fields[index] + '"><br>';
+                }
+                document.getElementById('content').innerHTML += html;
+            }
+        </script>
+    </head>
+    <body>
+        <form action="/v1/card/authorize" method="post">
+            <div id = 'content'></div>
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
