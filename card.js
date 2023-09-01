@@ -12,6 +12,7 @@ function generateTransactionReference() {
 
 const card = {
   pay: async (req, res, next) => {
+    logger.info(`request body: ${JSON.stringify(req.body)}`);
     try {
       const payload = {
         card_number: req.body.card_number,
@@ -76,6 +77,7 @@ const card = {
   },
 
   authorize: async (req, res, next) => {
+    logger.info(`request body: ${JSON.stringify(req.body)}`);
     try {
       const payload = req.session.charge_payload;
       // Add the auth mode and requested fields to the payload,
@@ -124,6 +126,7 @@ const card = {
   },
 
   validate: async (req, res, next) => {
+    logger.info(`request body: ${JSON.stringify(req.body)}`);
     try {
       const response = await flw.Charge.validate({
         otp: req.body.otp,
@@ -158,6 +161,7 @@ const card = {
   },
 
   redirect: async (req, res, next) => {
+    logger.info(`request body: ${JSON.stringify(req.body)}`);
     try {
       const params = JSON.parse(req.query.response);
       // if (req.query.status === 'successful' || req.query.status === 'pending') {

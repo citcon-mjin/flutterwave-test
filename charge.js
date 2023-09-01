@@ -10,6 +10,7 @@ function generateTransactionReference() {
 
 const charge = {
   bank_transfer: async (req, res, next) => {
+    logger.info(`request body: ${JSON.stringify(req.body)}`);
     try {
       const payload = {
         currency: 'NGN',
@@ -28,6 +29,7 @@ const charge = {
   },
 
   ozow: async (req, res, next) => {
+    logger.info(`request body: ${JSON.stringify(req.body)}`);
     try {
       const payload = {
         currency: 'ZAR',
@@ -46,6 +48,7 @@ const charge = {
   },
 
   ussd: async (req, res, next) => {
+    logger.info(`request body: ${JSON.stringify(req.body)}`);
     try {
       const payload = {
         account_bank: req.body.account_bank,
@@ -67,6 +70,7 @@ const charge = {
   },
 
   mpesa: async (req, res, next) => {
+    logger.info(`request body: ${JSON.stringify(req.body)}`);
     try {
       const payload = {
         phone_number: req.body.phone_number,
@@ -90,6 +94,7 @@ const charge = {
   },
 
   paga: async (req, res, next) => {
+    logger.info(`request body: ${JSON.stringify(req.body)}`);
     try {
       return res.send('TODO');
     } catch (e) {
@@ -98,6 +103,7 @@ const charge = {
   },
 
   barter: async (req, res, next) => {
+    logger.info(`request body: ${JSON.stringify(req.body)}`);
     try {
       const payload = {
         account_bank: req.body.account_bank,
