@@ -7,6 +7,7 @@ const charge = require('./charge');
 
 // card
 router.post('/card/pay', card.pay);
+router.post('/card/pay_api', card.pay_api);
 router.post('/card/authorize', card.authorize);
 router.post('/card/validate', card.validate);
 router.get('/card/redirect', card.redirect);

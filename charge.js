@@ -5,7 +5,8 @@ const { post } = require('./fetch');
 const flw = new Flutterwave(process.env.FLW_PUBLIC_KEY, process.env.FLW_SECRET_KEY);
 
 function generateTransactionReference() {
-  return `${Date.now()}`;
+//   return `${Date.now()}`;
+  return '123456';
 }
 
 const charge = {
