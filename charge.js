@@ -103,13 +103,17 @@ const charge = {
     logger.info(`request body: ${JSON.stringify(req.body)}`);
     try {
       const payload = {
-        account_bank: req.body.account_bank,
+        account_bank: 'barter',
         account_number: req.body.account_number,
         currency: 'NGN',
         amount: req.body.price,
         beneficiary_name: req.body.beneficiary_name,
       };
-      const response = await flw.Transfer.initiate(payload);
+      const headers = {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.FLW_SECRET_KEY}`,
+      };
+      const response = await post(`${process.env.FLW_ENDPOINT}/transfers`, payload, headers);
 
       return res.send(response);
     } catch (e) {
