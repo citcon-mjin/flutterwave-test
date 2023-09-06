@@ -1,6 +1,13 @@
 const fetch = require('node-fetch');
 const logger = require('./logger');
 
+// if (!globalThis.Headers) {
+//   globalThis.Headers = fetch.Headers;
+// }
+// if (!globalThis.Request) {
+//   globalThis.Request = fetch.Request;
+// }
+
 const request = async (method, url, reqData = null, headers = null) => {
   const content = {
     method,

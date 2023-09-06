@@ -21,7 +21,6 @@ const charge = {
         tx_ref: generateTransactionReference(),
       };
       const response = await flw.Charge.bank_transfer(payload);
-      logger.info(JSON.stringify(response));
 
       return res.send(response);
     } catch (e) {
@@ -40,7 +39,6 @@ const charge = {
         tx_ref: generateTransactionReference(),
       };
       const response = await flw.Charge.ach(payload);
-      logger.info(JSON.stringify(response));
 
       return res.send(response);
     } catch (e) {
@@ -62,7 +60,6 @@ const charge = {
         tx_ref: generateTransactionReference(),
       };
       const response = await flw.Charge.ussd(payload);
-      logger.info(JSON.stringify(response));
 
       return res.send(response);
     } catch (e) {
@@ -86,7 +83,6 @@ const charge = {
         Authorization: `Bearer ${process.env.FLW_SECRET_KEY}`,
       };
       const response = await post(`${process.env.FLW_ENDPOINT}/charges?type=mpesa`, payload, headers);
-      logger.info(JSON.stringify(response));
 
       return res.send(response);
     } catch (e) {
@@ -114,7 +110,6 @@ const charge = {
         beneficiary_name: req.body.beneficiary_name,
       };
       const response = await flw.Transfer.initiate(payload);
-      logger.info(JSON.stringify(response));
 
       return res.send(response);
     } catch (e) {

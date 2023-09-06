@@ -3,6 +3,7 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const logger = require('./logger');
+const interceptor = require('./interceptor');
 
 const router = require('./router');
 
@@ -23,6 +24,7 @@ app.get('/', (req, res) => {
 });
 
 app.use(express.static(path.join(__dirname, '/public')));
+interceptor.intercept();
 
 app.listen(3000, () => {
   logger.log('App listening on port 3000.');

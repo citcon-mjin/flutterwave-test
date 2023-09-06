@@ -35,8 +35,6 @@ const card = {
 
       const response = await flw.Charge.card(payload);
 
-      logger.info(JSON.stringify(response));
-
       switch (response?.meta?.authorization?.mode) {
         case 'pin':
         case 'avs_noauth':
@@ -61,7 +59,6 @@ const card = {
           const transaction = await flw.Transaction.verify({
             id: transactionId,
           });
-          logger.info(JSON.stringify(transaction));
           if (transaction.data.status === 'successful') {
             return res.redirect('/payment-successful');
           } if (transaction.data.status === 'pending') {
@@ -106,7 +103,7 @@ const card = {
         fullname: req.body.card_name,
         // Generate a unique transaction reference
         tx_ref: generateTransactionReference(),
-        redirect_url: `${req.protocol}://${req.host}:3000/v1/card/redirect`,
+        redirect_url: `${req.protocol}://${req.hostname}:3000/v1/card/redirect`,
         preauthorize: true,
       };
 
@@ -119,7 +116,6 @@ const card = {
         Authorization: `Bearer ${process.env.FLW_SECRET_KEY}`,
       };
       const response = await post(`${process.env.FLW_ENDPOINT}/charges?type=card`, encrypted, headers);
-      logger.info(JSON.stringify(response));
 
       switch (response?.meta?.authorization?.mode) {
         case 'pin':
@@ -145,7 +141,6 @@ const card = {
           const transaction = await flw.Transaction.verify({
             id: transactionId,
           });
-          logger.info(JSON.stringify(transaction));
           if (transaction.data.status === 'successful') {
             return res.redirect('/payment-successful');
           } if (transaction.data.status === 'pending') {
@@ -186,8 +181,6 @@ const card = {
       };
       const response = await post(`${process.env.FLW_ENDPOINT}/charges?type=card`, encrypted, headers);
 
-      logger.info(JSON.stringify(response));
-
       switch (response?.meta?.authorization?.mode) {
         case 'otp':
           // Show the user a form to enter the OTP
@@ -202,7 +195,6 @@ const card = {
           const transaction = await flw.Transaction.verify({
             id: transactionId,
           });
-          logger.info(JSON.stringify(transaction));
 
           if (transaction.data.status === 'successful') {
             return res.redirect('/payment-successful');
@@ -228,7 +220,6 @@ const card = {
         otp: req.body.otp,
         flw_ref: req.session.flw_ref,
       });
-      logger.info(JSON.stringify(response));
 
       if (response.data.status === 'successful' || response.data.status === 'pending') {
         // Verify the payment
@@ -236,7 +227,6 @@ const card = {
         const transaction = await flw.Transaction.verify({
           id: transactionId,
         });
-        logger.info(JSON.stringify(transaction));
 
         if (transaction.data.status === 'successful') {
           return res.redirect('/payment-successful');
@@ -268,7 +258,6 @@ const card = {
       const transaction = await flw.Transaction.verify({
         id: transactionId,
       });
-      logger.info(JSON.stringify(transaction));
 
       if (transaction.data.status === 'successful') {
         return res.redirect('/payment-successful');
