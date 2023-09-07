@@ -102,6 +102,32 @@
           </form>
         </td>
       </tr>
+      <tr>
+        <td>
+            <form method="POST" action="https://checkout.flutterwave.com/v3/hosted/pay">
+                <div>
+                  Your order is ₦3,400
+                </div>
+                <input type="hidden" name="public_key" value="FLWPUBK_TEST-1a8656006781321a033aede99dd43dbc-X" />
+                <input type="hidden" name="customer[email]" value="jessepinkman@walterwhite.org" />
+                <input type="hidden" name="customer[name]" value="Jesse Pinkman" />
+                <input type="hidden" name="customer[phone_number]" value="08100223342" />
+                <input type="hidden" name="tx_ref" value="bitethtx-019203" />
+                <input type="hidden" name="amount" value="3400" />
+                <input type="hidden" name="currency" value="NGN" />
+                <input type="hidden" name="meta[token]" value="54" />
+                <input type="hidden" name="payment_options" value="paga" />
+                <input type="hidden" name="redirect_url" value="https://google.com" />
+                <!-- <input type="hidden" name="customizations[title]" value="The Titanic Store" /> -->
+                <input type="hidden" name="customizations[description]" value="Payment for an awesome cruise" />
+                <!-- <input type="hidden" name="customizations[logo]" value="https://developer.flutterwave.com/avatar@3x.png" /> -->
+                <button type="submit" id="start-payment-button">Pay Now</button>
+              </form>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
     </table>
     <div style="margin-top: 50px;">
         <table data-v-bff7ff9c=""><thead data-v-bff7ff9c=""><tr data-v-bff7ff9c=""><th data-v-bff7ff9c="">Type</th><th data-v-bff7ff9c="">Card number</th><th data-v-bff7ff9c="">CVV</th><th data-v-bff7ff9c="">PIN</th><th data-v-bff7ff9c="">Expiry</th><th data-v-bff7ff9c="">OTP</th></tr></thead><tbody data-v-bff7ff9c=""><tr data-v-bff7ff9c=""><td data-v-bff7ff9c="">MasterCard PIN authentication</td><td data-v-bff7ff9c="">5531886652142950</td><td data-v-bff7ff9c="">564</td><td data-v-bff7ff9c="">3310</td><td data-v-bff7ff9c="">09/32</td><td data-v-bff7ff9c="">12345</td></tr><tr data-v-bff7ff9c=""><td data-v-bff7ff9c="">Mastercard PIN authentication 2</td><td data-v-bff7ff9c="">5399838383838381</td><td data-v-bff7ff9c="">470</td><td data-v-bff7ff9c="">3310</td><td data-v-bff7ff9c="">10/31</td><td data-v-bff7ff9c="">12345</td></tr><tr data-v-bff7ff9c=""><td data-v-bff7ff9c="">MasterCard 3DS authentication</td><td data-v-bff7ff9c="">5438898014560229</td><td data-v-bff7ff9c="">564</td><td data-v-bff7ff9c="">3310</td><td data-v-bff7ff9c="">10/31</td><td data-v-bff7ff9c="">12345</td></tr><tr data-v-bff7ff9c=""><td data-v-bff7ff9c="">Visa Card 3DS authentication</td><td data-v-bff7ff9c="">4187427415564246</td><td data-v-bff7ff9c="">828</td><td data-v-bff7ff9c="">3310</td><td data-v-bff7ff9c="">09/32</td><td data-v-bff7ff9c="">12345</td></tr><tr data-v-bff7ff9c=""><td data-v-bff7ff9c="">Visa Card 3DS authentication 2</td><td data-v-bff7ff9c="">4242424242424242</td><td data-v-bff7ff9c="">812</td><td data-v-bff7ff9c="">3310</td><td data-v-bff7ff9c="">01/31</td><td data-v-bff7ff9c="">12345</td></tr><tr data-v-bff7ff9c=""><td data-v-bff7ff9c="">Visa Card 3DS authentication 3</td><td data-v-bff7ff9c="">4751763236699647</td><td data-v-bff7ff9c="">-</td><td data-v-bff7ff9c="">-</td><td data-v-bff7ff9c="">09/35</td><td data-v-bff7ff9c="">-</td></tr><tr data-v-bff7ff9c=""><td data-v-bff7ff9c="">Verve Card Noauth</td><td data-v-bff7ff9c="">5061460410120223210</td><td data-v-bff7ff9c="">780</td><td data-v-bff7ff9c="">3310</td><td data-v-bff7ff9c="">12/31</td><td data-v-bff7ff9c="">12345</td></tr><tr data-v-bff7ff9c=""><td data-v-bff7ff9c="">Verve Card PIN authentication 2</td><td data-v-bff7ff9c="">5061460166976054667</td><td data-v-bff7ff9c="">-</td><td data-v-bff7ff9c="">3310</td><td data-v-bff7ff9c="">10/22</td><td data-v-bff7ff9c="">-</td></tr><tr data-v-bff7ff9c=""><td data-v-bff7ff9c="">Address Verification (AVS) Card</td><td data-v-bff7ff9c="">4556052704172643</td><td data-v-bff7ff9c="">899</td><td data-v-bff7ff9c="">3310</td><td data-v-bff7ff9c="">09/32</td><td data-v-bff7ff9c="">12345</td></tr><tr data-v-bff7ff9c=""><td data-v-bff7ff9c="">Pre-authorization Test Card</td><td data-v-bff7ff9c="">5377283645077450</td><td data-v-bff7ff9c="">789</td><td data-v-bff7ff9c="">3310</td><td data-v-bff7ff9c="">09/31</td><td data-v-bff7ff9c="">-</td></tr></tbody></table>
