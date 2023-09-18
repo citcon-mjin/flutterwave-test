@@ -99,7 +99,7 @@
           </form>
         </td>
         <td>
-          <h2>Barter transfer</h2>
+          <h2 style="text-decoration: line-through;">Barter transfer</h2>
           <form action="/v1/barter" method="post">
             <input type="text" name="price" placeholder="price" />
             <br />
@@ -113,16 +113,16 @@
       </tr>
       <tr>
         <td>
+            <h2>Paga</h2>
             <form method="POST" action="https://checkout.flutterwave.com/v3/hosted/pay">
                 <div>
-                  Your order is ₦34
+                  Your order is ₦<input type="text" name="amount" value="3400" />
                 </div>
                 <input type="hidden" name="public_key" value="FLWPUBK_TEST-1a8656006781321a033aede99dd43dbc-X" />
                 <input type="hidden" name="customer[email]" value="jessepinkman@walterwhite.org" />
                 <input type="hidden" name="customer[name]" value="Jesse Pinkman" />
                 <input type="hidden" name="customer[phone_number]" value="08100223342" />
                 <input type="hidden" name="tx_ref" value="bitethtx-019203" />
-                <input type="hidden" name="amount" value="3400" />
                 <input type="hidden" name="currency" value="NGN" />
                 <input type="hidden" name="meta[token]" value="54" />
                 <input type="hidden" name="payment_options" value="paga" />
