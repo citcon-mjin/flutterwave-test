@@ -63,6 +63,12 @@
         <td>
           <h2>ACH - OZOW</h2>
           <form action="/v1/ozow" method="post">
+            Currency: 
+            <select style="width: 120px; height: 30px;" name="currency">
+                <option value="USD">USD</option>
+                <option value="ZAR">ZAR</option>
+            </select>
+            <br>
             <input type="text" name="price" placeholder="price" />
             <br />
             <input type="text" name="email" placeholder="email" />
@@ -118,7 +124,7 @@
                 <div>
                   Your order is ₦<input type="text" name="amount" value="3400" />
                 </div>
-                <input type="hidden" name="public_key" value="FLWPUBK_TEST-1a8656006781321a033aede99dd43dbc-X" />
+                <input type="hidden" name="public_key" value="FLWPUBK_TEST-23408dad832a8878280b1c386d1130f6-X" />
                 <input type="hidden" name="customer[email]" value="jessepinkman@walterwhite.org" />
                 <input type="hidden" name="customer[name]" value="Jesse Pinkman" />
                 <input type="hidden" name="customer[phone_number]" value="08100223342" />

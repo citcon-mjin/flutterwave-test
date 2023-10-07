@@ -12,7 +12,7 @@ router.post('/card/authorize', card.authorize);
 router.post('/card/validate', card.validate);
 router.get('/card/redirect', card.redirect);
 // charge
-router.post('/bank_transfer', charge.bank_transfer);
+router.post('/bank_transfer', charge.bank_transfer_api);
 router.post('/ozow', charge.ozow);
 router.post('/ussd', charge.ussd);
 router.post('/mpesa', charge.mpesa);

@@ -10,7 +10,7 @@ const interceptor = {
 
     instance.on('request', async ({ request, requestId }) => {
       const json = await request.clone().json();
-      logger.info(`${request.method} ${request.url}, with ${JSON.stringify(json)}`);
+      logger.info(`${request.method} ${request.url}, request: ${JSON.stringify(json)}`);
     });
 
     instance.on('response', async ({

@@ -5,8 +5,8 @@ const { post } = require('./fetch');
 const flw = new Flutterwave(process.env.FLW_PUBLIC_KEY, process.env.FLW_SECRET_KEY);
 
 function generateTransactionReference() {
-//   return `${Date.now()}`;
-  return '123456';
+  return `${Date.now()}`;
+//   return '123456';
 }
 
 const charge = {
@@ -28,11 +28,33 @@ const charge = {
     }
   },
 
+  bank_transfer_api: async (req, res, next) => {
+    logger.info(`request body: ${JSON.stringify(req.body)}`);
+    try {
+      const payload = {
+        currency: 'NGN',
+        amount: req.body.price,
+        email: req.body.email,
+        // Generate a unique transaction reference
+        tx_ref: generateTransactionReference(),
+      };
+      const headers = {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.FLW_SECRET_KEY}`,
+      };
+      const response = await post(`${process.env.FLW_ENDPOINT}/charges?type=bank_transfer`, payload, headers);
+
+      return res.send(response);
+    } catch (e) {
+      return next(e);
+    }
+  },
+
   ozow: async (req, res, next) => {
     logger.info(`request body: ${JSON.stringify(req.body)}`);
     try {
       const payload = {
-        currency: 'ZAR',
+        currency: req.body.currency,
         amount: req.body.price,
         email: req.body.email,
         // Generate a unique transaction reference
