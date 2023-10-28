@@ -139,7 +139,27 @@
                 <button type="submit" id="start-payment-button">Pay Now</button>
               </form>
         </td>
-        <td></td>
+        <td>
+            <h2>1Voucher</h2>
+            <form method="POST" action="https://checkout.flutterwave.com/v3/hosted/pay">
+                <div>
+                  Your order is <input type="text" name="amount" value="3400" />
+                </div>
+                <input type="hidden" name="public_key" value="FLWPUBK_TEST-23408dad832a8878280b1c386d1130f6-X" />
+                <input type="hidden" name="customer[email]" value="jessepinkman@walterwhite.org" />
+                <input type="hidden" name="customer[name]" value="Jesse Pinkman" />
+                <input type="hidden" name="customer[phone_number]" value="08100223342" />
+                <input type="hidden" name="tx_ref" value="bitethtx-019203" />
+                <input type="hidden" name="currency" value="ZAR" />
+                <input type="hidden" name="meta[token]" value="54" />
+                <input type="hidden" name="payment_options" value="1voucher" />
+                <input type="hidden" name="redirect_url" value="https://google.com" />
+                <!-- <input type="hidden" name="customizations[title]" value="The Titanic Store" /> -->
+                <input type="hidden" name="customizations[description]" value="Payment for an awesome cruise" />
+                <!-- <input type="hidden" name="customizations[logo]" value="https://developer.flutterwave.com/avatar@3x.png" /> -->
+                <button type="submit" id="start-payment-button">Pay Now</button>
+            </form>
+        </td>
         <td></td>
         <td></td>
       </tr>
